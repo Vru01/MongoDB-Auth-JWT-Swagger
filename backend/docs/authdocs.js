@@ -64,6 +64,53 @@
 
 /**
  * @swagger
+ * /api/auth/refresh:
+ *   post:
+ *     summary: Refresh Access Token
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - requestToken
+ *             properties:
+ *               requestToken:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: New Access Token generated
+ *       403:
+ *         description: Invalid or expired Refresh Token
+ */
+
+/**
+ * @swagger
+ * /api/auth/logout:
+ *   post:
+ *     summary: Logout (Invalidate Refresh Token)
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - requestToken
+ *             properties:
+ *               requestToken:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Logged out successfully
+ */
+
+
+/**
+ * @swagger
  * /api/auth/profile:
  *   get:
  *     summary: Get current user profile (Protected)

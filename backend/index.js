@@ -11,6 +11,25 @@ const app = express();
 // Connect to Database
 connectDB();
 
+// Required when adding frontend. -- CORS Configurationn 
+    // const corsOptions = {
+    //     // 🔒 STRICT MODE: Only allow localhost:3000 (React/Next.js default)
+    //     origin: 'http://localhost:3000', 
+        
+    //     // 🔓 DEV MODE (Uncomment below to allow ALL ports if 3000 doesn't work)
+    //     // origin: '*', 
+
+    //     // 🔓 VITE MODE (Uncomment below if using Vite)
+    //     // origin: 'http://localhost:5173',
+
+    //     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    //     credentials: true, // Required for cookies/sessions
+    //     optionsSuccessStatus: 204
+    // };
+
+    // To Apply the CORS middleware with options
+    // app.use(cors(corsOptions));
+
 // Middlewares
 app.use(express.json());
 app.use(cors());
@@ -52,3 +71,5 @@ app.use('/api/auth', require('./routes/authRoutes'));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
